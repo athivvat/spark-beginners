@@ -1,3 +1,5 @@
-[debug] "not up to date. inChanged = true, force = false
-[debug] Updating ProjectRef(uri("file:/Users/80094/Workplace/labs/spark-beginners/"), "spark-beginners")...
-[debug] Done updating ProjectRef(uri("file:/Users/80094/Workplace/labs/spark-beginners/"), "spark-beginners")
+[0m[[0m[33mwarn[0m] [0m[0mscala-library-2.12.10-sources.jar no longer exists at /Users/80094/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.10/scala-library-2.12.10-sources.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m"not up to date. inChanged = false, force = false[0m
+[0m[[0m[0mdebug[0m] [0m[0mUpdating ProjectRef(uri("file:/Users/80094/Workplace/labs/spark-beginners/"), "spark-beginners")...[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone updating ProjectRef(uri("file:/Users/80094/Workplace/labs/spark-beginners/"), "spark-beginners")[0m
+[0m[[0m[33mwarn[0m] [0m[0mThere may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.[0m
