@@ -2,7 +2,7 @@ package school.machines.chapter4
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.expressions.Window
-import org.apache.spark.sql.functions.{avg, col, max, min, row_number, sum}
+import org.apache.spark.sql.functions._
 
 object WindowFunctions {
   def main(args: Array[String]) = {
@@ -25,21 +25,54 @@ object WindowFunctions {
       ("Kumar", "Marketing", 2000),
       ("Saif", "Sales", 4100)
     )
+
     val df = simpleData.toDF("employee_name", "department", "salary")
     df.show()
 
+    df.select(
+      col("department"),
+      col("salary"),
+      min("salary").over(Window.partitionBy("department"))
+    ).show()
+
     // row_number
-    val windowSpec  = Window.partitionBy("department").orderBy("salary")
+//    val windowSpec  = Window.partitionBy("department").orderBy("salary")
+//    df.withColumn("row_number", row_number().over(windowSpec))
+//      .show()
+//
+//    // rank
+//    df.withColumn("rank", rank().over(windowSpec))
+//      .show()
+//
+//    // dens_rank
+//    df.withColumn("dens_rank", dense_rank().over(windowSpec))
+//      .show()
+//
+//    // percent_rank
+//    df.withColumn("percent_rank", percent_rank().over(windowSpec))
+//      .show()
+//
+//    // ntile
+//    df.withColumn("ntile", ntile(2).over(windowSpec))
+//      .show()
+//
+//    // cume_dist
+//    df.withColumn("cume_dist", cume_dist().over(windowSpec))
+//      .show()
+
+    // lag
+
+    // lead
 
     // Aggregate Functions
-    val windowSpecAgg = Window.partitionBy("department")
-    val aggDF = df.withColumn("row", row_number.over(windowSpec))
-      .withColumn("avg", avg(col("salary")).over(windowSpecAgg))
-      .withColumn("sum", sum(col("salary")).over(windowSpecAgg))
-      .withColumn("min", min(col("salary")).over(windowSpecAgg))
-      .withColumn("max", max(col("salary")).over(windowSpecAgg))
-      .where(col("row")===1)
-      .select("department", "avg", "sum", "min", "max")
-      .show()
+//    val windowSpecAgg = Window.partitionBy("department")
+//    val aggDF = df.withColumn("row", row_number.over(windowSpec))
+//      .withColumn("avg", avg(col("salary")).over(windowSpecAgg))
+//      .withColumn("sum", sum(col("salary")).over(windowSpecAgg))
+//      .withColumn("min", min(col("salary")).over(windowSpecAgg))
+//      .withColumn("max", max(col("salary")).over(windowSpecAgg))
+//      .where(col("row")===1)
+//      .select("department", "avg", "sum", "min", "max")
+//      .show()
   }
 }
